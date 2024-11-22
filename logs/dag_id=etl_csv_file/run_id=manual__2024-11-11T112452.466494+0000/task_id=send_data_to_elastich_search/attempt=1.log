@@ -1,0 +1,34 @@
+[2024-11-11T11:25:04.492+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.send_data_to_elastich_search manual__2024-11-11T11:24:52.466494+00:00 [queued]>
+[2024-11-11T11:25:04.637+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.send_data_to_elastich_search manual__2024-11-11T11:24:52.466494+00:00 [queued]>
+[2024-11-11T11:25:04.638+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-11T11:25:04.655+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): send_data_to_elastich_search> on 2024-11-11 11:24:52.466494+00:00
+[2024-11-11T11:25:04.659+0000] {standard_task_runner.py:60} INFO - Started process 558 to run task
+[2024-11-11T11:25:04.662+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'send_data_to_elastich_search', 'manual__2024-11-11T11:24:52.466494+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmp26yl7bxc']
+[2024-11-11T11:25:04.665+0000] {standard_task_runner.py:88} INFO - Job 5: Subtask send_data_to_elastich_search
+[2024-11-11T11:25:04.732+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.send_data_to_elastich_search manual__2024-11-11T11:24:52.466494+00:00 [running]> on host 06b604148fe5
+[2024-11-11T11:25:04.860+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='send_data_to_elastich_search' AIRFLOW_CTX_EXECUTION_DATE='2024-11-11T11:24:52.466494+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-11T11:24:52.466494+00:00'
+[2024-11-11T11:25:05.489+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.396s]
+[2024-11-11T11:25:06.128+0000] {logging_mixin.py:188} WARNING - /opt/airflow/dags/etl_csv_file.py:100 ElasticsearchWarning: [types removal] Specifying types in bulk requests is deprecated.
+[2024-11-11T11:25:06.312+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.155s]
+[2024-11-11T11:25:06.479+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.108s]
+[2024-11-11T11:25:06.662+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.115s]
+[2024-11-11T11:25:06.861+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.145s]
+[2024-11-11T11:25:07.059+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.135s]
+[2024-11-11T11:25:07.286+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.167s]
+[2024-11-11T11:25:07.521+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.176s]
+[2024-11-11T11:25:07.695+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.120s]
+[2024-11-11T11:25:07.996+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.224s]
+[2024-11-11T11:25:08.174+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.115s]
+[2024-11-11T11:25:08.297+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.075s]
+[2024-11-11T11:25:08.405+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.070s]
+[2024-11-11T11:25:08.533+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.091s]
+[2024-11-11T11:25:08.674+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.090s]
+[2024-11-11T11:25:08.810+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.091s]
+[2024-11-11T11:25:08.954+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.098s]
+[2024-11-11T11:25:09.117+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.095s]
+[2024-11-11T11:25:09.304+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.127s]
+[2024-11-11T11:25:09.362+0000] {_transport.py:335} INFO - PUT http://elasticsearch-m3:9200/_bulk [status:200 duration:0.035s]
+[2024-11-11T11:25:09.389+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-11-11T11:25:09.410+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=etl_csv_file, task_id=send_data_to_elastich_search, execution_date=20241111T112452, start_date=20241111T112504, end_date=20241111T112509
+[2024-11-11T11:25:09.489+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-11-11T11:25:09.524+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

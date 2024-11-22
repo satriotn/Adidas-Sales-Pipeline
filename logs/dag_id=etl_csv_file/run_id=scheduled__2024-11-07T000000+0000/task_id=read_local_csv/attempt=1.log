@@ -1,0 +1,98 @@
+[2024-11-08T08:39:57.077+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [queued]>
+[2024-11-08T08:39:57.114+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [queued]>
+[2024-11-08T08:39:57.116+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-08T08:39:57.182+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): read_local_csv> on 2024-11-07 00:00:00+00:00
+[2024-11-08T08:39:57.188+0000] {standard_task_runner.py:60} INFO - Started process 215 to run task
+[2024-11-08T08:39:57.216+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'read_local_csv', 'scheduled__2024-11-07T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmpguoidpdy']
+[2024-11-08T08:39:57.231+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask read_local_csv
+[2024-11-08T08:39:57.432+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [running]> on host ea0df5a66d62
+[2024-11-08T08:39:57.722+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='read_local_csv' AIRFLOW_CTX_EXECUTION_DATE='2024-11-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-07T00:00:00+00:00'
+[2024-11-08T08:39:57.728+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_csv_file.py", line 30, in read_local_csv
+    df = pd.read_csv(local_csv_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\ThinkPad\\OneDrive - Bina Nusantara\\Documents\\Hacktiv8\\Milestone\\p2-ftds021-hck-m3-satriotn\\adidas_sales.csv'
+[2024-11-08T08:39:57.814+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_file, task_id=read_local_csv, execution_date=20241107T000000, start_date=20241108T083957, end_date=20241108T083957
+[2024-11-08T08:39:57.862+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task read_local_csv ([Errno 2] No such file or directory: 'C:\\Users\\ThinkPad\\OneDrive - Bina Nusantara\\Documents\\Hacktiv8\\Milestone\\p2-ftds021-hck-m3-satriotn\\adidas_sales.csv'; 215)
+[2024-11-08T08:39:57.936+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-11-08T08:39:58.029+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-08T08:50:48.869+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [queued]>
+[2024-11-08T08:50:48.887+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [queued]>
+[2024-11-08T08:50:48.889+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-08T08:50:48.932+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): read_local_csv> on 2024-11-07 00:00:00+00:00
+[2024-11-08T08:50:48.938+0000] {standard_task_runner.py:60} INFO - Started process 197 to run task
+[2024-11-08T08:50:48.944+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'read_local_csv', 'scheduled__2024-11-07T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmp06telvpv']
+[2024-11-08T08:50:48.948+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask read_local_csv
+[2024-11-08T08:50:49.042+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [running]> on host 11b8696c470a
+[2024-11-08T08:50:49.231+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='read_local_csv' AIRFLOW_CTX_EXECUTION_DATE='2024-11-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-07T00:00:00+00:00'
+[2024-11-08T08:50:49.241+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_csv_file.py", line 31, in read_local_csv
+    df = pd.read_csv(local_csv_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/data/adidas_sales.csv'
+[2024-11-08T08:50:49.259+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_file, task_id=read_local_csv, execution_date=20241107T000000, start_date=20241108T085048, end_date=20241108T085049
+[2024-11-08T08:50:49.287+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 3 for task read_local_csv ([Errno 2] No such file or directory: '/opt/airflow/data/adidas_sales.csv'; 197)
+[2024-11-08T08:50:49.323+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-11-08T08:50:49.371+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-08T08:56:09.114+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [queued]>
+[2024-11-08T08:56:09.131+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [queued]>
+[2024-11-08T08:56:09.132+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-08T08:56:09.155+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): read_local_csv> on 2024-11-07 00:00:00+00:00
+[2024-11-08T08:56:09.161+0000] {standard_task_runner.py:60} INFO - Started process 192 to run task
+[2024-11-08T08:56:09.167+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'read_local_csv', 'scheduled__2024-11-07T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmpn56eh8n9']
+[2024-11-08T08:56:09.178+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask read_local_csv
+[2024-11-08T08:56:09.279+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.read_local_csv scheduled__2024-11-07T00:00:00+00:00 [running]> on host f66859b21ee4
+[2024-11-08T08:56:09.418+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='read_local_csv' AIRFLOW_CTX_EXECUTION_DATE='2024-11-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-07T00:00:00+00:00'
+[2024-11-08T08:56:09.503+0000] {logging_mixin.py:188} INFO - Sample data :
+[2024-11-08T08:56:09.561+0000] {logging_mixin.py:188} INFO -    Unnamed: 0  Invoice Id  ... Operating Margin  Sales Method
+0           0           1  ...               50      In-store
+1           1           2  ...               30      In-store
+2           2           3  ...               35      In-store
+3           3           4  ...               35      In-store
+4           4           5  ...               30      In-store
+
+[5 rows x 15 columns]
+[2024-11-08T08:56:09.790+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-11-08T08:56:09.820+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=etl_csv_file, task_id=read_local_csv, execution_date=20241107T000000, start_date=20241108T085609, end_date=20241108T085609
+[2024-11-08T08:56:09.997+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-11-08T08:56:10.054+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

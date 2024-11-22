@@ -1,0 +1,132 @@
+[2024-11-08T09:01:32.875+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [queued]>
+[2024-11-08T09:01:32.889+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [queued]>
+[2024-11-08T09:01:32.891+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-08T09:01:32.920+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): preprocess_data> on 2024-11-07 06:30:00+00:00
+[2024-11-08T09:01:32.929+0000] {standard_task_runner.py:60} INFO - Started process 277 to run task
+[2024-11-08T09:01:32.933+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'preprocess_data', 'scheduled__2024-11-07T06:30:00+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmpboj47_0u']
+[2024-11-08T09:01:32.937+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask preprocess_data
+[2024-11-08T09:01:33.034+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [running]> on host f66859b21ee4
+[2024-11-08T09:01:33.306+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='preprocess_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-07T06:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-07T06:30:00+00:00'
+[2024-11-08T09:01:33.434+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_csv_file.py", line 44, in preprocess_data
+    df['Units Sold'] = df['Units Sold'].astype(int)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 6324, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 451, in astype
+    return self.apply(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 352, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/blocks.py", line 511, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 242, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 187, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 105, in _astype_nansafe
+    return _astype_float_to_int_nansafe(arr, dtype, copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 150, in _astype_float_to_int_nansafe
+    raise IntCastingNaNError(
+pandas.errors.IntCastingNaNError: Cannot convert non-finite values (NA or inf) to integer
+[2024-11-08T09:01:33.451+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_file, task_id=preprocess_data, execution_date=20241107T063000, start_date=20241108T090132, end_date=20241108T090133
+[2024-11-08T09:01:33.471+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 7 for task preprocess_data (Cannot convert non-finite values (NA or inf) to integer; 277)
+[2024-11-08T09:01:33.522+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-11-08T09:01:33.570+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-08T09:37:06.999+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [queued]>
+[2024-11-08T09:37:07.022+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [queued]>
+[2024-11-08T09:37:07.023+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-08T09:37:07.060+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): preprocess_data> on 2024-11-07 06:30:00+00:00
+[2024-11-08T09:37:07.069+0000] {standard_task_runner.py:60} INFO - Started process 201 to run task
+[2024-11-08T09:37:07.074+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'preprocess_data', 'scheduled__2024-11-07T06:30:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmp7f96hvtr']
+[2024-11-08T09:37:07.078+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask preprocess_data
+[2024-11-08T09:37:07.161+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [running]> on host fcf5fca827a9
+[2024-11-08T09:37:07.481+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='preprocess_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-07T06:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-07T06:30:00+00:00'
+[2024-11-08T09:37:07.931+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_csv_file.py", line 48, in preprocess_data
+    df['Units Sold'] = df['Units Sold'].astype(int)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 6324, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 451, in astype
+    return self.apply(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 352, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/blocks.py", line 511, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 242, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 187, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 105, in _astype_nansafe
+    return _astype_float_to_int_nansafe(arr, dtype, copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 150, in _astype_float_to_int_nansafe
+    raise IntCastingNaNError(
+pandas.errors.IntCastingNaNError: Cannot convert non-finite values (NA or inf) to integer
+[2024-11-08T09:37:07.955+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_file, task_id=preprocess_data, execution_date=20241107T063000, start_date=20241108T093707, end_date=20241108T093707
+[2024-11-08T09:37:07.976+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task preprocess_data (Cannot convert non-finite values (NA or inf) to integer; 201)
+[2024-11-08T09:37:08.018+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-11-08T09:37:08.063+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-08T09:43:59.653+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [queued]>
+[2024-11-08T09:43:59.673+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [queued]>
+[2024-11-08T09:43:59.674+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-08T09:43:59.706+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): preprocess_data> on 2024-11-07 06:30:00+00:00
+[2024-11-08T09:43:59.712+0000] {standard_task_runner.py:60} INFO - Started process 202 to run task
+[2024-11-08T09:43:59.717+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'preprocess_data', 'scheduled__2024-11-07T06:30:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmp6bd05_hs']
+[2024-11-08T09:43:59.720+0000] {standard_task_runner.py:88} INFO - Job 4: Subtask preprocess_data
+[2024-11-08T09:43:59.826+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.preprocess_data scheduled__2024-11-07T06:30:00+00:00 [running]> on host d2f121bfe37c
+[2024-11-08T09:44:00.039+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='preprocess_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-07T06:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-07T06:30:00+00:00'
+[2024-11-08T09:44:00.421+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_csv_file.py", line 60, in preprocess_data
+    df['Units Sold'] = df['Units Sold'].astype(int)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 6324, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 451, in astype
+    return self.apply(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/managers.py", line 352, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/internals/blocks.py", line 511, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 242, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 187, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 105, in _astype_nansafe
+    return _astype_float_to_int_nansafe(arr, dtype, copy)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/dtypes/astype.py", line 150, in _astype_float_to_int_nansafe
+    raise IntCastingNaNError(
+pandas.errors.IntCastingNaNError: Cannot convert non-finite values (NA or inf) to integer
+[2024-11-08T09:44:00.448+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_file, task_id=preprocess_data, execution_date=20241107T063000, start_date=20241108T094359, end_date=20241108T094400
+[2024-11-08T09:44:00.469+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 4 for task preprocess_data (Cannot convert non-finite values (NA or inf) to integer; 202)
+[2024-11-08T09:44:00.500+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-11-08T09:44:00.540+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

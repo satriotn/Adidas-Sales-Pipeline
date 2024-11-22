@@ -1,0 +1,15 @@
+1. Apa itu NoSQL: NoSQL adalah jenis database yang beda dari database tradisional yang pakai tabel-tabel, seperti di SQL. Di NoSQL, kita bisa simpan data dalam bentuk yang lebih fleksibel, misalnya dokumen, key-value, atau grafik. Struktur data NoSQL ini cocok untuk data yang sering berubah atau nggak punya aturan baku. Selain itu, NoSQL gampang diperbesar ke banyak server sekaligus, jadi lebih cepat untuk menangani data dalam jumlah besar.
+
+2. Kapan Menggunakan NoSQL dan RDBMS (Relational Database Management System):
+
+3. NoSQL lebih cocok kalau data yang kita pakai jumlahnya besar dan sering berubah-ubah strukturnya, atau kalau kita butuh akses data yang cepat. Misalnya, aplikasi media sosial yang terus berkembang, atau aplikasi IoT yang ngumpulin data dari sensor-sensor.
+RDBMS atau database relasional lebih cocok buat data yang strukturnya tetap dan butuh relasi antar data, misalnya data keuangan atau data pelanggan. RDBMS juga unggul kalau kita butuh konsistensi data yang tinggi, karena mendukung standar transaksi yang ketat (ACID).
+Contoh 2 Tools/Platform NoSQL selain Elasticsearch:
+
+4. MongoDB: Ini adalah database NoSQL yang simpan data dalam bentuk dokumen JSON. MongoDB cocok untuk data yang strukturnya fleksibel dan sering berubah. Kelebihannya adalah nggak butuh tabel atau relasi antar data, jadi lebih simpel kalau datanya kompleks.
+Cassandra: Cassandra adalah database NoSQL yang cocok untuk data besar dan bisa dipecah ke banyak server. Database ini tahan rusak (fault-tolerant) dan bisa menampung data dalam jumlah besar. Cassandra banyak dipakai di perusahaan besar, misalnya di Netflix atau Facebook.
+Apa yang Diketahui tentang Airflow: Apache Airflow adalah alat yang dipakai buat ngatur alur kerja data (workflow). Dengan Airflow, kita bisa otomatisasi proses seperti ETL (Extract, Transform, Load) dan ngatur data dalam urutan tertentu. Di Airflow, setiap proses diatur dalam bentuk grafik (DAG), jadi gampang buat dipantau dan diatur kapan jalan atau kapan berhenti.
+
+5. Apa yang Diketahui tentang Great Expectations: Great Expectations adalah alat buat cek kualitas data. Di sini kita bisa bikin aturan atau "ekspektasi" buat data kita, misalnya memastikan nggak ada data yang kosong atau data di angka yang tepat. Great Expectations berguna banget buat memastikan data yang kita pakai sudah sesuai sebelum lanjut diproses atau dipakai di model machine learning.
+
+6. Apa yang Diketahui tentang Batch Processing: Batch Processing adalah cara ngolah data yang jumlahnya besar dalam satu waktu, misalnya di akhir hari atau akhir bulan. Di sini data dikumpulkan dulu, baru diproses dalam satu batch atau kelompok sekaligus. Contohnya, laporan transaksi harian di bank atau data log yang diolah setiap malam. Tools yang sering dipakai buat batch processing ini antara lain Apache Spark dan Hadoop, yang bagus buat ngolah data dalam jumlah besar dan dengan cepat.

@@ -1,0 +1,28 @@
+[2024-11-08T10:11:13.133+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: etl_csv_file.send_data_to_elastich_search manual__2024-11-08T10:10:52.976472+00:00 [queued]>
+[2024-11-08T10:11:13.195+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: etl_csv_file.send_data_to_elastich_search manual__2024-11-08T10:10:52.976472+00:00 [queued]>
+[2024-11-08T10:11:13.200+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-08T10:11:13.240+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): send_data_to_elastich_search> on 2024-11-08 10:10:52.976472+00:00
+[2024-11-08T10:11:13.257+0000] {standard_task_runner.py:60} INFO - Started process 204 to run task
+[2024-11-08T10:11:13.263+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'etl_csv_file', 'send_data_to_elastich_search', 'manual__2024-11-08T10:10:52.976472+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/etl_csv_file.py', '--cfg-path', '/tmp/tmpk9_6qeu5']
+[2024-11-08T10:11:13.277+0000] {standard_task_runner.py:88} INFO - Job 6: Subtask send_data_to_elastich_search
+[2024-11-08T10:11:13.418+0000] {task_command.py:423} INFO - Running <TaskInstance: etl_csv_file.send_data_to_elastich_search manual__2024-11-08T10:10:52.976472+00:00 [running]> on host efe6839ec606
+[2024-11-08T10:11:13.612+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Satrio' AIRFLOW_CTX_DAG_ID='etl_csv_file' AIRFLOW_CTX_TASK_ID='send_data_to_elastich_search' AIRFLOW_CTX_EXECUTION_DATE='2024-11-08T10:10:52.976472+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-08T10:10:52.976472+00:00'
+[2024-11-08T10:11:13.615+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 241, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl_csv_file.py", line 82, in send_data_to_elastich_search
+    es = Elasticsearch([{'host': 'elasticsearch-m3', 'port': 9200, 'scheme': 'http'}])
+NameError: name 'Elasticsearch' is not defined
+[2024-11-08T10:11:13.634+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=etl_csv_file, task_id=send_data_to_elastich_search, execution_date=20241108T101052, start_date=20241108T101113, end_date=20241108T101113
+[2024-11-08T10:11:13.668+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 6 for task send_data_to_elastich_search (name 'Elasticsearch' is not defined; 204)
+[2024-11-08T10:11:13.721+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-11-08T10:11:13.764+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

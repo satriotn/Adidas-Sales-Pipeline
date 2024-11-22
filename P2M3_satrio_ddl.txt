@@ -1,0 +1,28 @@
+-- URL Dataset
+URL: https://www.kaggle.com/datasets/heemalichaudhari/adidas-sales-dataset
+
+-- DDL Syntax: Membuat Database dan Tabel
+CREATE DATABASE "adidas sales";
+
+\c "adidas sales";  -- Perintah untuk pindah ke database yang sudah dibuat
+
+CREATE TABLE sales_data (
+    invoice_id INT PRIMARY KEY,
+    retailer VARCHAR(255),
+    retailer_id INT,
+    invoice_date DATE,
+    region VARCHAR(100),
+    state VARCHAR(100),
+    city VARCHAR(100),
+    product VARCHAR(255),
+    price_per_unit NUMERIC,
+    units_sold INT,
+    total_sales NUMERIC,
+    operating_profit NUMERIC,
+    operating_margin NUMERIC,
+    sales_method VARCHAR(50)
+);
+
+-- DML Syntax: Mengisi Data dengan COPY
+COPY sales_data(invoice_id, retailer, retailer_id, invoice_date, region, state, city, product, price_per_unit, units_sold, total_sales, operating_profit, operating_margin, sales_method)
+FROM '/path/to/your/file.csv' DELIMITER ',' CSV HEADER;
